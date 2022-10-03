@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.nigelkazembe.nota_notetakingapp.ui.main.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_notesFragment"
+            app:destination="@id/notesFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_mainFragment_to_newNotesFragment"
+            app:destination="@id/newNotesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.nigelkazembe.nota_notetakingapp.NotesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" >
+        <argument
+            android:name="savedNote"
+            app:argType="com.nigelkazembe.nota_notetakingapp.Notes"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/newNotesFragment"
+        android:name="com.nigelkazembe.nota_notetakingapp.NewNotesFragment"
+        android:label="NewNotesFragment" >
+        <argument
+            android:name="newUserNoteCreatedObject"
+            app:argType="com.nigelkazembe.nota_notetakingapp.Notes"
+            app:nullable="true" />
+    </fragment>
+</navigation>
